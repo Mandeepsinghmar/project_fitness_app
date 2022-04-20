@@ -81,13 +81,14 @@ align-items: center;
   text-decoration: none;
 width: 360px;
 border: 1px solid rgb(235, 235, 235);
-border-radius: 4px;
+border-radius: 15px;
 height: 440px;
 }
 .exercise-card img{
   width: 358px;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+
+ border-top-left-radius: 13px;
+  border-top-right-radius: 13px; 
 }
 .exercise-card:hover{
   opacity: 0.9;

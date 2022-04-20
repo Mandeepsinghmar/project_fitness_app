@@ -73,7 +73,7 @@ const Home = () => {
         <Box>
           <TextField
             className="search"
-            sx={{ input: { color: 'white', fontWeight: '700', } }}
+            sx={{ input: { color: 'white', fontWeight: '700' } }}
             value={search}
             onChange={(e) => setSearch(e.target.value.toLowerCase())}
             placeholder="search"
