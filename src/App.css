@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Pacifico&display=swap');
+body, *{
+font-family: 'Lato', sans-serif;
+}
 *{
   padding: 0px;
   margin: 0px;
@@ -8,19 +12,20 @@
 .container{
   margin-bottom: 20px;
 }
+
 .navbar{
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
   background-image: url('https://s.imgur.com/desktop-assets/desktop-assets/homebg.e52b5cdf24f83bcd55f9f1318855f2ef.png');
-  height: 350px;
+  height: 400px;
  width: 100%;
   padding: 20px;
 }
- .input{
+ .search{
   margin-bottom: 20px;
-  margin-top: 10px;
+  margin-top: 20px;
   width: 600px;
   background: hsla(0,0%,100%,.25);
     border-radius: 3px;
@@ -30,8 +35,10 @@
     font-size: 16px;
     font-weight: 700;
     letter-spacing: .4px;
-    color: #fff;
+    color: #fff !important;
 }
+
+
 .body-parts-container{
   margin: 20px;
   display: flex;
@@ -49,10 +56,11 @@ font-size: 14px;
 line-height: 1.15;
 text-transform: capitalize;
 font-weight: 800;
+font-family: lato;
 }
 .exercises-wrapper{
   position: absolute;
- top:250px;
+ top:300px;
  width: 100%;
  margin: auto;
   display: flex;
@@ -117,25 +125,28 @@ padding: 10px;
   height: 80px;
   width: 30px;
   background-color: aliceblue;
-  color: #2facfe;
+  color: rgb(228, 125, 87);
  font-size: 30px;
+ border-radius: 4px;
 }
-.arrow:hover{
-  background-color: #171544;
-}
+
 
 .react-horizontal-scrolling-menu--wrapper {
     width: 100%;
 }
 
-
+.react-horizontal-scrolling-menu--wrapper{
+  gap: 43px;
+}
 .detail-exercise{
   display: flex;
   gap: 20px;
 justify-content: center;
 flex-wrap: wrap;
     background-image: url('https://s.imgur.com/desktop-assets/desktop-assets/homebg.e52b5cdf24f83bcd55f9f1318855f2ef.png');
-  height: 640px;
+
+  height: 700px;
+ 
   width: 100%;
   color: white;
  padding-top: 30px;
@@ -149,16 +160,18 @@ flex-wrap: wrap;
   font-weight: 800;
   font-size: 20px;
 }
-
+.exercise-videos-wrapper{
+  position: absolute;
+ top:500px;
+ width: 100%;
+}
 .exercise-videos{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
-  position: absolute;
- top:513px;
- width: 100%;
+
 }
 .exercise-suggestions{
   margin-top: 240px;
@@ -172,25 +185,54 @@ flex-wrap: wrap;
   text-decoration: none;
 width: 360px;
 border-radius: 12px;
+
 }
 .exercise-video img{
   width: 360px;
+  height: 170px;
 }
 
-
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+  color: white !important;
+  font-weight: 700 !important;
+}
+.css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+    background-color: rgb(228, 125, 87);
+    color: white;
+}
+.videos-heading{
+  color: white;
+}
 @media screen and (max-width:1000px){
-  .exercise-videos{
+.exercise-videos-wrapper{
     position: static;
     margin-top: 30px;
+
     
   }
+  .exercise-videos{
+    gap:20px
+  }
   .exercise-suggestions{
-  margin-top: 30px;
+  margin-top: 80px;
+}
+.exercise-card{
+  width: 300px;
+}
+.exercise-card img{
+  width: 298px;
 }
 .exercises-wrapper{
-  top: 380px;
+  top: 420px;
 }
-.input{
-  width: 350px;
+.search{
+  width: 300px;
+}
+
+.react-horizontal-scrolling-menu--wrapper {
+    gap: 2px;
+}
+.videos-heading{
+  color: black;
 }
 }

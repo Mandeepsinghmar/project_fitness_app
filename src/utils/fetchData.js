@@ -1,13 +1,20 @@
-const options = {
-    method: 'GET',
-    url: 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
-    headers: {
-        'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
-        'X-RapidAPI-Key': '229e8614f7msh4e5939512c43cecp145276jsn0d25cb6ca194'
-    }
+export const exerciseOptions = {
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
+    'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
+  },
 };
-export const fetchData = async (url) => {
-    const res = await fetch(url, options);
-    const data = await res.json();
-    return data;
+export const youtubeOptions = {
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Host': 'youtube-search-and-download.p.rapidapi.com',
+    'X-RapidAPI-Key': 'f0021db587msh781fb1cbef39856p11c183jsn45521d5d1c85',
+  },
+};
+
+export const fetchData = async (url, options) => {
+  const res = await fetch(url, options);
+  const data = await res.json();
+  return data;
 };

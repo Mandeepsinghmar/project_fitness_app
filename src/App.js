@@ -1,3 +1,4 @@
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import './App.css';
@@ -8,9 +9,8 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/exercise/:id' element={<ExerciseDetail />} />
-
+        <Route path="/" element={<Home />} />
+        <Route path="/exercise/:id" element={<ExerciseDetail />} />
       </Routes>
     </div>
   );
