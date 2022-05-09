@@ -5,6 +5,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material//ChevronRight';
 import randomColor from 'randomcolor';
 import { Box, Typography } from '@mui/material';
+import ExerciseCard from './ExerciseCard';
 
 function LeftArrow() {
   const { scrollPrev } = useContext(VisibilityContext);
@@ -33,23 +34,11 @@ const HorizontalSrollbar = ({ data }) => (
         key={exercise.id}
         itemId={exercise.id}
         title={exercise.name}
-        className="exercise-card"
-        bgcolor={randomColor()}
+        className="detail-exercise-card"
         ml="10px"
       >
-        <Link
-          to={`/exercise/${exercise.id}`}
-          style={{
-            textDecoration: 'none',
-            borderRadius: '12px',
-          }}
-        >
-          <img src={exercise.gifUrl} alt={exercise.name} loading="lazy" />
-          <Typography>{exercise.name}
-          </Typography>
-        </Link>
+        <ExerciseCard exercise={exercise} />
       </Box>
-
     ))}
 
   </ScrollMenu>
