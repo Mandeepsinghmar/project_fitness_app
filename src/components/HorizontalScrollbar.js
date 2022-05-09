@@ -1,10 +1,8 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material//ChevronRight';
-import randomColor from 'randomcolor';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import ExerciseCard from './ExerciseCard';
 
 function LeftArrow() {

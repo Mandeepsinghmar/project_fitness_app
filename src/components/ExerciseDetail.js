@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { InfinitySpin } from 'react-loader-spinner';
 import { Typography, Box, Stack } from '@mui/material';
-import randomColor from 'randomcolor';
 
 import { exerciseOptions, fetchData, youtubeOptions } from '../utils/fetchData';
 import HorizontalSrollbar from './HorizontalScrollbar';
