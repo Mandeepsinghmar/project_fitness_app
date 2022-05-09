@@ -59,21 +59,18 @@ export const ExerciseDetail = () => {
           <Stack direction="row" justifyContent="space-around" gap="30px" p={4} alignItems="center">
             <Box className="detail-exercise">
               <img src={gifUrl} alt={name} loading="lazy" />
-              <Stack spacing={2} direction="row" justifyContent="center" alignItems="center">
+              <Stack spacing={2} direction="row" justifyContent="center" alignItems="center" mt="20px">
                 {exerciseDetails.map((item) => (
                   <Stack
                     justifyContent="center"
                     alignItems="center"
                     key={item.name}
-                    spacing={3}
-                    sx={{ mt: 3 }}
                   >
-                    <Typography className="item">
+                    <Typography className="item" textTransform="capitalize">
                       {item.icon}
                       {item.name}
                     </Typography>
-                    <Typography sx={{ background: 'white', color: 'black' }}>{item.title}</Typography>
-
+                    <Typography>{item.title}</Typography>
                   </Stack>
                 ))}
               </Stack>
