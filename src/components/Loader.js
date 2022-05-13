@@ -1,11 +1,11 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Stack } from '@mui/material';
 import { InfinitySpin } from 'react-loader-spinner';
 
 const Loader = () => (
-  <Box className="loader">
+  <Stack direction="row" justifyContent="center" alignItems="center" width="100%">
     <InfinitySpin color="grey" />
-  </Box>
+  </Stack>
 );
 
 export default Loader;

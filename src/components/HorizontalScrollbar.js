@@ -1,17 +1,19 @@
 import React, { useContext } from 'react';
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material//ChevronRight';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+
 import ExerciseCard from './ExerciseCard';
+import BodyPart from './BodyPart';
+import RightArrowIcon from '../assets/icons/right-arrow.png';
+import LeftArrowIcon from '../assets/icons/left-arrow.png';
 
 function LeftArrow() {
   const { scrollPrev } = useContext(VisibilityContext);
 
   return (
-    <button type="button" onClick={() => scrollPrev()} className="arrow">
-      <ChevronLeftIcon />
-    </button>
+    <Typography onClick={() => scrollPrev()} className="right-arrow">
+      <img src={LeftArrowIcon} alt="right-arrow" />
+    </Typography>
   );
 }
 
@@ -19,26 +21,25 @@ function RightArrow() {
   const { scrollNext } = useContext(VisibilityContext);
 
   return (
-    <button type="button" onClick={() => scrollNext()} className="arrow">
-      <ChevronRightIcon />
-    </button>
+    <Typography onClick={() => scrollNext()} className="left-arrow">
+      <img src={RightArrowIcon} alt="right-arrow" />
+    </Typography>
   );
 }
-const HorizontalSrollbar = ({ data }) => (
+const HorizontalSrollbar = ({ data, bodyParts, setBodyPart, bodyPart, marginLeft }) => (
   <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
-
-    {data.map((exercise) => (
+    {data.map((item) => (
       <Box
-        key={exercise.id}
-        itemId={exercise.id}
-        title={exercise.name}
-        className="detail-exercise-card"
-        ml="10px"
+        key={item}
+        itemId={item.id || item}
+        title={item.id || item}
+        ml={marginLeft}
       >
-        <ExerciseCard exercise={exercise} />
+        {
+          bodyParts ? <BodyPart item={item} setBodyPart={setBodyPart} bodyPart={bodyPart} /> : <ExerciseCard exercise={item} />
+        }
       </Box>
     ))}
-
   </ScrollMenu>
 );
 export default HorizontalSrollbar;

@@ -1,0 +1,64 @@
+import React, { useEffect, useState } from 'react';
+import { Box, Button, Stack, TextField, Typography } from '@mui/material';
+
+import { exerciseOptions, fetchData } from '../utils/fetchData';
+import HorizontalSrollbar from './HorizontalScrollbar';
+
+const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
+  const [search, setSearch] = useState('');
+  const [bodyParts, setBodyParts] = useState([]);
+
+  useEffect(() => {
+    const fetchExercisesData = async () => {
+      const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
+
+      setBodyParts(['all', ...bodyPartsData]);
+    };
+    fetchExercisesData();
+  }, []);
+
+  const handleSearch = async () => {
+    if (search) {
+      const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
+      const searchedExercises = exercisesData.filter(
+        (item) => item.name.toLowerCase().includes(search)
+                    || item.target.toLowerCase().includes(search)
+                    || item.equipment.toLowerCase().includes(search)
+                    || item.bodyPart.toLowerCase().includes(search),
+      );
+      setExercises(searchedExercises);
+    }
+  };
+
+  return (
+    <Stack alignItems="center" mt="37px">
+      <Typography fontWeight={600} fontSize="26px" color="#FF2625" mb="28px">
+        Our Services
+      </Typography>
+      <Typography fontWeight={700} fontSize="44px" mb="49px" textAlign="center">
+        Awesome Exercises You <br />
+        Should Know
+      </Typography>
+      <Box position="relative" mb="72px">
+        <TextField
+          height="76px"
+          className="search"
+          sx={{ input: { fontWeight: '700', border: 'none', borderRadius: '4px' }, width: { lg: '1170px', xs: '400px' }, backgroundColor: '#fff', borderRadius: '40px' }}
+          value={search}
+          onChange={(e) => setSearch(e.target.value.toLowerCase())}
+          placeholder="Search a exercise"
+          type="text"
+        />
+        <Button sx={{ bgcolor: '#FF2625', color: '#fff', borderRadius: '40px', textTransform: 'none', width: { lg: '173px', xs: '100px' }, height: { lg: '58px', xs: '40px' }, position: 'absolute', right: '10px', top: { lg: '10px', xs: '20px' }, fontSize: { lg: '20px', xs: '14px' } }} onClick={handleSearch}>
+          Search
+        </Button>
+      </Box>
+      <Box sx={{ position: 'relative', width: '100%', p: '20px' }}>
+        <HorizontalSrollbar data={bodyParts} bodyParts setBodyPart={setBodyPart} bodyPart={bodyPart} marginLeft="60px" />
+
+      </Box>
+    </Stack>
+  );
+};
+
+export default SearchExercises;

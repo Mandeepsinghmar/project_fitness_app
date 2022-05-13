@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import Pagination from '@mui/material/Pagination';
-import { Box } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 
 import { exerciseOptions, fetchData } from '../utils/fetchData';
 import ExerciseCard from './ExerciseCard';
 import Loader from './Loader';
 
-const Home = ({ exercises, setExercises, bodyPart }) => {
+const Exercises = ({ exercises, setExercises, bodyPart }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [exercisesPerPage] = useState(10);
+  const [exercisesPerPage] = useState(6);
 
   // fetch exercises Data
-
   useEffect(() => {
     const fetchExercisesData = async () => {
       if (bodyPart === 'all') {
@@ -24,8 +23,6 @@ const Home = ({ exercises, setExercises, bodyPart }) => {
     };
     fetchExercisesData();
   }, [bodyPart]);
-
-  // search
 
   // Pagination
 
@@ -40,34 +37,40 @@ const Home = ({ exercises, setExercises, bodyPart }) => {
     setCurrentPage(value);
     window.scrollTo(0, 0);
   };
-
   return (
-    <Box className="exercises-wrapper">
-      <Box className="exercises-container">
-        {
-                        currentExercises.length > 0 ? (
-                          <>
-                            {
-                        currentExercises.map((exercise, idx) => (
-                          <ExerciseCard key={idx} exercise={exercise} />
-                        ))
-                      }
-                          </>
+    <Box sx={{ mt: { lg: '109px' } }} mt="50px" p="20px">
+      <Typography variant="h4" fontWeight="bold" sx={{ fontSize: { lg: '44px' } }} fontSize="20px" mb="46px">Showing Results</Typography>
 
-                        ) : (
-                          <Loader />
-                        )
-                    }
-      </Box>
-      <Box sx={{ mt: 6, mb: 10 }}>
+      <Stack direction="row" gap="107px" flexWrap="wrap" justifyContent="center">
         {
-                        exercises.length > 9 && (
-                        <Pagination color="secondary" defaultPage={1} count={Math.ceil(exercises.length / exercisesPerPage)} page={currentPage} onChange={paginate} />
-                        )
-                    }
-      </Box>
+            currentExercises.length > 0 ? (
+              currentExercises.map((exercise, idx) => (
+                <ExerciseCard key={idx} exercise={exercise} />
+              ))
+            ) : (
+              <Loader />
+            )
+             }
+      </Stack>
+      <Stack mt="114px" alignItems="center">
+        {
+           exercises.length > 9 && (
+           <Pagination
+             color="standard"
+             variant="outlined"
+             shape="rounded"
+             defaultPage={1}
+             count={Math.ceil(exercises.length / exercisesPerPage)}
+             page={currentPage}
+             onChange={paginate}
+           />
+           )
+}
+      </Stack>
     </Box>
+
   );
 };
 
-export default Home;
+export default Exercises;
+
