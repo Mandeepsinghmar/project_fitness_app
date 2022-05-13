@@ -4,10 +4,10 @@ import Loader from './Loader';
 
 const ExerciseVideos = ({ exerciseVideos, name }) => (
   <Box mt="50px" sx={{ marginTop: { lg: '203px' } }} p="20px">
-    <Typography variant="h5" sx={{ fontSize: { lg: '44px' } }} fontWeight={700} color="#000" mb="33px">
+    <Typography sx={{ fontSize: { lg: '44px', xs: '30px' } }} fontWeight={700} color="#000" mb="33px">
       Watch <span style={{ color: '#FF2625', textTransform: 'capitalize' }}>{name}</span> exercise videos
     </Typography>
-    <Stack sx={{ flexDirection: { lg: 'row' }, gap: { lg: '110px', xs: '40px' } }} justifyContent="center">
+    <Stack sx={{ flexDirection: { lg: 'row' }, gap: { lg: '110px', xs: '40px' } }} justifyContent="center" alignItems="center">
       {exerciseVideos.length !== 0 ? (
         exerciseVideos?.slice(0, 3)?.map((item, index) => (
           <a

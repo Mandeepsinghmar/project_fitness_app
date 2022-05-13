@@ -6,7 +6,7 @@ import Loader from './Loader';
 
 const OtherExercises = ({ targetMuscleExercises, equipmentExercises }) => (
   <Box sx={{ mt: { lg: '100px', xs: '60px' } }} p="20px">
-    <Typography variant="h5" sx={{ fontSize: { lg: '44px' } }} fontWeight={700} color="#000" mb="33px">
+    <Typography sx={{ fontSize: { lg: '44px', xs: '30px' } }} fontWeight={700} color="#000" mb="33px">
       Other <span style={{ color: '#FF2625', textTransform: 'capitalize' }}>Target Muscle</span> exercises
     </Typography>
     <Stack direction="row" spacing={3} sx={{ p: 2, position: 'relative' }}>
@@ -16,7 +16,7 @@ const OtherExercises = ({ targetMuscleExercises, equipmentExercises }) => (
         <Loader />
       )}
     </Stack>
-    <Typography variant="h5" sx={{ fontSize: { lg: '44px' } }} fontWeight={700} color="#000" mb="33px" mt="100px">
+    <Typography sx={{ fontSize: { lg: '44px', xs: '30px' } }} fontWeight={700} color="#000" mb="33px" mt="100px">
       Other <span style={{ color: '#FF2625', textTransform: 'capitalize' }}>Equipment</span> exercises
     </Typography>
     <Stack direction="row" spacing={3} sx={{ p: 2, position: 'relative' }}>
