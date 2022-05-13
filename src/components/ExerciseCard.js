@@ -4,18 +4,7 @@ import { Button, Stack, Typography } from '@mui/material';
 
 const ExerciseCard = ({ exercise }) => (
   <Link
-    style={{
-      width: '371px',
-      height: '445px',
-      background: '#fff',
-      borderTop: '4px solid #FF2625',
-      borderBottomLeftRadius: '20px',
-      textDecoration: 'none',
-      display: 'flex',
-      justifyContent: 'space-between',
-      flexDirection: 'column',
-      paddingBottom: '10px',
-    }}
+    className="exercise-card"
     to={`/exercise/${exercise.id}`}
   >
     <img

@@ -8,6 +8,7 @@ const BodyPart = ({ item, setBodyPart, bodyPart }) => (
     alignItems="center"
     justifyContent="center"
     gap="47px"
+    className="bodyPart-card"
     sx={bodyPart === item ? { borderTop: '4px solid #FF2625', background: '#fff', borderBottomLeftRadius: '20px', width: { lg: '270px', xs: '320px' }, height: '282px', cursor: 'pointer' } : { background: '#fff', borderBottomLeftRadius: '20px', width: { lg: '270px', xs: '320px' }, height: '282px', cursor: 'pointer' }}
     onClick={() => {
       setBodyPart(item);
