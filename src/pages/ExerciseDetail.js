@@ -51,7 +51,7 @@ const ExerciseDetail = () => {
 
   return (
     exerciseDetail && (
-    <Box mt="60px" sx={{ mt: { lg: '96px' } }}>
+    <Box sx={{ mt: { lg: '96px', xs: '60px' } }}>
       <Detail exerciseDetail={exerciseDetail} />
       <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name} />
       <OtherExercises targetMuscleExercises={targetMuscleExercises} equipmentExercises={equipmentExercises} />

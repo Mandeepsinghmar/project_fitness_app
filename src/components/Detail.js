@@ -23,7 +23,7 @@ const Detail = ({ exerciseDetail }) => {
   ];
 
   return (
-    <Stack gap="61px" sx={{ flexDirection: { lg: 'row' }, p: '20px', alignItems: 'center' }}>
+    <Stack gap="60px" sx={{ flexDirection: { lg: 'row' }, p: '20px', alignItems: 'center' }}>
       <img src={gifUrl} alt={name} loading="lazy" className="detail-image" />
       <Stack sx={{ gap: { lg: '35px', xs: '20px' } }}>
         <Typography sx={{ fontSize: { lg: '64px', xs: '30px' } }} fontWeight={700} textTransform="capitalize">
@@ -39,7 +39,7 @@ const Detail = ({ exerciseDetail }) => {
         </Typography>
         {
           extraDetail?.map((item) => (
-            <Stack direction="row" gap="24px" alignItems="center">
+            <Stack key={item.name} direction="row" gap="24px" alignItems="center">
               <Button
                 sx={{
                   background: '#FFF2DB',
