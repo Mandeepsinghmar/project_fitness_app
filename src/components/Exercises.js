@@ -35,13 +35,16 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
   const paginate = (event, value) => {
     setCurrentPage(value);
-    window.scrollTo(0, 0);
+    window.scrollTo({
+      top: 1800,
+      behavior: 'smooth',
+    });
   };
   return (
-    <Box sx={{ mt: { lg: '109px' } }} mt="50px" p="20px">
-      <Typography variant="h4" fontWeight="bold" sx={{ fontSize: { lg: '44px' } }} fontSize="20px" mb="46px">Showing Results</Typography>
+    <Box id="exercises" sx={{ mt: { lg: '109px' } }} mt="50px" p="20px">
+      <Typography variant="h4" fontWeight="bold" sx={{ fontSize: { lg: '44px', xs: '30px' } }} mb="46px">Showing Results</Typography>
 
-      <Stack direction="row" gap="107px" flexWrap="wrap" justifyContent="center">
+      <Stack direction="row" sx={{ gap: { lg: '107px', xs: '50px' } }} flexWrap="wrap" justifyContent="center">
         {
             currentExercises.length > 0 ? (
               currentExercises.map((exercise, idx) => (
@@ -52,7 +55,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
             )
              }
       </Stack>
-      <Stack mt="114px" alignItems="center">
+      <Stack sx={{ mt: { lg: '114px', xs: '70px' } }} alignItems="center">
         {
            exercises.length > 9 && (
            <Pagination

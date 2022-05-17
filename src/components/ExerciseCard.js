@@ -11,7 +11,6 @@ const ExerciseCard = ({ exercise }) => (
       src={exercise.gifUrl}
       alt={exercise.name}
       loading="lazy"
-      style={{ width: '371px', height: '326px' }}
     />
     <Stack direction="row">
       <Button
@@ -46,8 +45,9 @@ const ExerciseCard = ({ exercise }) => (
       ml="21px"
       color="#000"
       fontWeight="bold"
-      fontSize="24px"
+      sx={{ fontSize: { lg: '24px', xs: '20px' } }}
       mt="11px"
+      pb="10px"
       textTransform="capitalize"
     >
       {exercise.name}

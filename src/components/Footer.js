@@ -9,7 +9,7 @@ import Logo from '../assets/images/Logo-1.png';
 
 const Footer = () => (
   <Box mt="80px" bgcolor="#FFF3F4">
-    <Stack direction="row" gap="20px" sx={{ justifyContent: { lg: 'space-between', xs: 'center' } }} flexWrap="wrap" px="40px" pt="24px">
+    <Stack gap="40px" sx={{ justifyContent: { lg: 'space-between', xs: 'center' }, flexDirection: { lg: 'row', xs: 'column' }, alignItems: 'center' }} flexWrap="wrap" px="40px" pt="24px">
       <img src={Logo} alt="logo" style={{ width: '200px', height: '41px' }} />
       <Stack
         direction="row"

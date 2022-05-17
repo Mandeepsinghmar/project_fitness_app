@@ -28,13 +28,13 @@ body {
   border-radius: 4px;
   position: absolute;
   bottom: -20px;
-  right: 148px;
+  right: 80px;
   transform: scale(1, 1);
   transition: 0.3s all ease-in-out;
 }
 
 .right-arrow {
-  right: 190px;
+  right: 140px;
 }
 
 .right-arrow:hover,
@@ -57,14 +57,14 @@ body {
   position: absolute;
   right: 40px;
   top: 0px;
-  width: 758px;
-  height: 1000px;
+  width: 700px;
+  height: 900px;
   margin-top: -330px;
 
 }
 
 .exercise-card {
-  width: 371px;
+  width: 400px;
   height: 445px;
   background: #fff;
   border-top: 4px solid #FF2625;
@@ -76,6 +76,10 @@ body {
   padding-bottom: 10px;
   transform: scale(1, 1);
   transition: 0.3s all ease-in-out;
+}
+
+.exercise-card img {
+  height: 326px;
 }
 
 .bodyPart-card {
@@ -91,6 +95,15 @@ body {
 .search-btn:hover {
   color: #FF2625 !important;
   border: 1px solid #FF2625 !important;
+}
+
+.exercise-video {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 387px;
+  height: 381px;
+  text-decoration: none;
 }
 
 @media screen and (max-width:1200px) {
@@ -112,4 +125,14 @@ body {
   .hero-banner-img {
     display: none;
   }
+
+  .exercise-card {
+    width: 320px;
+  }
+
+  .exercise-video {
+    width: 320px;
+    height: 350px;
+  }
+
 }

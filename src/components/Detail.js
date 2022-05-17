@@ -7,11 +7,26 @@ import EquipmentImage from '../assets/icons/equipment.png';
 
 const Detail = ({ exerciseDetail }) => {
   const { bodyPart, gifUrl, name, target, equipment } = exerciseDetail;
+  const extraDetail = [
+    {
+      icon: BodyPartImage,
+      name: bodyPart,
+    },
+    {
+      icon: TargetImage,
+      name: target,
+    },
+    {
+      icon: EquipmentImage,
+      name: equipment,
+    },
+  ];
+
   return (
     <Stack gap="61px" sx={{ flexDirection: { lg: 'row' }, p: '20px', alignItems: 'center' }}>
       <img src={gifUrl} alt={name} loading="lazy" className="detail-image" />
-      <Stack gap="35px">
-        <Typography sx={{ fontSize: { lg: '64px', xs: '40px' } }} fontWeight={700} textTransform="capitalize">
+      <Stack sx={{ gap: { lg: '35px', xs: '20px' } }}>
+        <Typography sx={{ fontSize: { lg: '64px', xs: '30px' } }} fontWeight={700} textTransform="capitalize">
           {name}
         </Typography>
         <Typography sx={{ fontSize: { lg: '24px', xs: '18px' } }} color="#4F4C4C">
@@ -22,63 +37,29 @@ const Detail = ({ exerciseDetail }) => {
           <br />
           mood and gain energy.
         </Typography>
-        <Stack direction="row" gap="24px" alignItems="center">
-          <Button
-            sx={{
-              background: '#FFF2DB',
-              borderRadius: '50%',
-              width: '100px',
-              height: '100px',
-            }}
-          >
-            <img
-              src={BodyPartImage}
-              alt={bodyPart}
-              style={{ width: '50px', height: '50px' }}
-            />
-          </Button>
-          <Typography textTransform="capitalize" fontSize="30px">
-            {bodyPart}
-          </Typography>
-        </Stack>
-        <Stack direction="row" gap="24px" alignItems="center">
-          <Button
-            sx={{
-              background: '#FFF2DB',
-              borderRadius: '50%',
-              width: '100px',
-              height: '100px',
-            }}
-          >
-            <img
-              src={TargetImage}
-              alt={target}
-              style={{ width: '50px', height: '50px' }}
-            />
-          </Button>
-          <Typography textTransform="capitalize" fontSize="30px">
-            {target}
-          </Typography>
-        </Stack>
-        <Stack direction="row" gap="24px" alignItems="center">
-          <Button
-            sx={{
-              background: '#FFF2DB',
-              borderRadius: '50%',
-              width: '100px',
-              height: '100px',
-            }}
-          >
-            <img
-              src={EquipmentImage}
-              alt={equipment}
-              style={{ width: '50px', height: '50px' }}
-            />
-          </Button>
-          <Typography textTransform="capitalize" fontSize="30px">
-            {equipment}
-          </Typography>
-        </Stack>
+        {
+          extraDetail?.map((item) => (
+            <Stack direction="row" gap="24px" alignItems="center">
+              <Button
+                sx={{
+                  background: '#FFF2DB',
+                  borderRadius: '50%',
+                  width: '100px',
+                  height: '100px',
+                }}
+              >
+                <img
+                  src={item.icon}
+                  alt={bodyPart}
+                  style={{ width: '50px', height: '50px' }}
+                />
+              </Button>
+              <Typography textTransform="capitalize" sx={{ fontSize: { lg: '30px', xs: '20px' } }}>
+                {item.name}
+              </Typography>
+            </Stack>
+          ))
+        }
       </Stack>
     </Stack>
   );
