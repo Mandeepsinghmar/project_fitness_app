@@ -7,7 +7,7 @@ import BodyPart from './BodyPart';
 import RightArrowIcon from '../assets/icons/right-arrow.png';
 import LeftArrowIcon from '../assets/icons/left-arrow.png';
 
-function LeftArrow() {
+const LeftArrow = () => {
   const { scrollPrev } = useContext(VisibilityContext);
 
   return (
@@ -15,9 +15,9 @@ function LeftArrow() {
       <img src={LeftArrowIcon} alt="right-arrow" />
     </Typography>
   );
-}
+};
 
-function RightArrow() {
+const RightArrow = () => {
   const { scrollNext } = useContext(VisibilityContext);
 
   return (
@@ -25,8 +25,9 @@ function RightArrow() {
       <img src={RightArrowIcon} alt="right-arrow" />
     </Typography>
   );
-}
-const HorizontalSrollbar = ({ data, bodyParts, setBodyPart, bodyPart }) => (
+};
+
+const HorizontalScrollbar = ({ data, bodyParts, setBodyPart, bodyPart }) => (
   <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
     {data.map((item) => (
       <Box
@@ -35,12 +36,10 @@ const HorizontalSrollbar = ({ data, bodyParts, setBodyPart, bodyPart }) => (
         title={item.id || item}
         m="0 40px"
       >
-        {
-          bodyParts ? <BodyPart item={item} setBodyPart={setBodyPart} bodyPart={bodyPart} /> : <ExerciseCard exercise={item} />
-        }
+        {bodyParts ? <BodyPart item={item} setBodyPart={setBodyPart} bodyPart={bodyPart} /> : <ExerciseCard exercise={item} /> }
       </Box>
     ))}
-
   </ScrollMenu>
 );
-export default HorizontalSrollbar;
+
+export default HorizontalScrollbar;
